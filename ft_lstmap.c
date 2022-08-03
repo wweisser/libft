@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wweisser <wweisser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wendelin <wendelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 10:11:33 by wweisser          #+#    #+#             */
-/*   Updated: 2022/04/11 12:50:06 by wweisser         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:20:50 by wendelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ static void	clearlst(t_list *newlst, void (*del)(void *))
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*newlsthead;
-	t_list	*last;
 	t_list	*node;
 
 	newlsthead = NULL;
-	last = newlsthead;
 	while (lst != NULL)
 	{
 		node = ft_lstnew(f(lst->content));
@@ -43,10 +41,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		else
 		{
 			if (newlsthead == NULL)
-			{
 				newlsthead = node;
-				last = newlsthead;
-			}
 			else
 				ft_lstadd_back(&newlsthead, node);
 		}

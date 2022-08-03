@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wweisser <wweisser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wendelin <wendelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 18:15:36 by wweisser          #+#    #+#             */
-/*   Updated: 2022/08/03 15:02:29 by wweisser         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:23:57 by wendelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,6 @@ int	print_hex10lc(unsigned long hex10lc, int style)
 	int		i;
 
 	i = 0;
-	if (hex10lc < 0)
-	{
-		i = print_hex10lc((unsigned int )hex10lc, style);
-		return (i);
-	}
 	if ((hex10lc / 16) == 0)
 	{
 		c = hextable(hex10lc % 16, style);

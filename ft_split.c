@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wweisser <wweisser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wendelin <wendelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 20:54:51 by wweisser          #+#    #+#             */
-/*   Updated: 2022/05/02 18:15:32 by wweisser         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:36:49 by wendelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 #include "libft.h"
 #include <stdio.h>
 
-static void	asgnstr(char const *s, char ***field_return, int i[3])
+static void	asgnstr(char ***field_return, int i[3])
 {
-	int		ref;
 	char	**field;
 
 	field = *field_return;
@@ -32,8 +31,6 @@ static void	asgnstr(char const *s, char ***field_return, int i[3])
 		free (field);
 		*field_return = NULL;
 	}
-	else
-		ref = ft_strlcpy(field[i[1]], s + (i[0] - i[2] + 1), i[2] + 1);
 }
 
 static char	**numbstr(char **field, char const *s, char c)
@@ -78,7 +75,7 @@ char	**ft_split(char const *s, char c)
 			i[2]++;
 		if (s[i[0]] != c && (s[i[0] + 1] == c || s[i[0] + 1] == '\0'))
 		{
-			asgnstr(s, &field, i);
+			asgnstr(&field, i);
 			i[1]++;
 			i[2] = 0;
 		}

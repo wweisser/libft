@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wweisser <wweisser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wendelin <wendelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:19:26 by wweisser          #+#    #+#             */
-/*   Updated: 2022/04/12 17:13:57 by wweisser         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:32:19 by wendelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 //locates substring of length len at point start, copys it returns it.
 char	*ft_substr(char const *s, size_t start, size_t len)
 {
-	unsigned int	i;
 	unsigned int	slen;
 	char			*pointer;
 
-	i = 0;
 	pointer = NULL;
 	if (s == NULL)
 		return (pointer);

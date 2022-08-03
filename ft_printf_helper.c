@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_helper.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wweisser <wweisser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wendelin <wendelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:53:27 by wweisser          #+#    #+#             */
-/*   Updated: 2022/08/03 15:02:48 by wweisser         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:24:54 by wendelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,6 @@ int	print_usb10numb(unsigned long usb10numb)
 	int	i;
 
 	i = 1;
-	if (usb10numb < 0)
-		i++;
 	ft_putnbr_fd(usb10numb, 1);
 	while ((usb10numb / 10) != 0)
 	{

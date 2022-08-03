@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wweisser <wweisser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wendelin <wendelin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 08:55:44 by wweisser          #+#    #+#             */
-/*   Updated: 2022/04/12 17:06:21 by wweisser         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:13:42 by wendelin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	*ft_calloc(size_t count, size_t size)
 
 	i = 0;
 	pointer = NULL;
-	if (count == SIZE_MAX && size == SIZE_MAX)
-		return (NULL);
 	pointer = malloc(count * size);
 	if (pointer == NULL)
 		return (NULL);

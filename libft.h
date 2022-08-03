@@ -6,21 +6,23 @@
 /*   By: wweisser <wweisser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 14:02:48 by wweisser          #+#    #+#             */
-/*   Updated: 2022/04/14 15:58:42 by wweisser         ###   ########.fr       */
+/*   Updated: 2022/08/03 14:41:20 by wweisser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
+# include <stdarg.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 };
-typedef struct s_list	t_list;
+typedef struct	s_list	t_list;
 
 int				ft_tolower(int c);
 int				ft_toupper(int c);
@@ -67,4 +69,14 @@ t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+
+int				print_str(char *str);
+int				print_b10numb(long b10numb);
+int				print_b10int(int b10int);
+int				print_usb10numb(unsigned long usb10numb);
+int				print_char(char c);
+
+int				ft_printf(const char *str, ...);
+int				selct(va_list ap, char c);
+int				print_vpoint(void *pointer);
 #endif

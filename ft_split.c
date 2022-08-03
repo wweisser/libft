@@ -6,7 +6,7 @@
 /*   By: wweisser <wweisser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 20:54:51 by wweisser          #+#    #+#             */
-/*   Updated: 2022/04/20 19:09:03 by wweisser         ###   ########.fr       */
+/*   Updated: 2022/05/02 18:15:32 by wweisser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 #include "libft.h"
 #include <stdio.h>
 
-static void	asgnstr(char const *s, char **field, int i[3])
+static void	asgnstr(char const *s, char ***field_return, int i[3])
 {
-	int ref;
+	int		ref;
+	char	**field;
 
+	field = *field_return;
 	field[i[1]] = NULL;
 	field[i[1]] = (char *)malloc(sizeof(char) * (i[2] + 1));
 	if (field[i[1]] == NULL)
 	{
 		while (i[1] >= 0)
 		{
-			free ((void *)field[i[1]]);
-			field[1] = NULL;
+			free (field[i[1]]);
 			i[1]--;
 		}
-		free ((void **)field);
-		field = NULL;
+		free (field);
+		*field_return = NULL;
 	}
 	else
 		ref = ft_strlcpy(field[i[1]], s + (i[0] - i[2] + 1), i[2] + 1);
@@ -50,7 +51,6 @@ static char	**numbstr(char **field, char const *s, char c)
 	field = (char **)malloc(sizeof(char *) * (i[1] + 1));
 	if (field == NULL)
 	{
-		free ((void **)field);
 		return (NULL);
 	}
 	while (i[1] >= 0)
@@ -78,7 +78,7 @@ char	**ft_split(char const *s, char c)
 			i[2]++;
 		if (s[i[0]] != c && (s[i[0] + 1] == c || s[i[0] + 1] == '\0'))
 		{
-			asgnstr(s, field, i);
+			asgnstr(s, &field, i);
 			i[1]++;
 			i[2] = 0;
 		}
@@ -86,12 +86,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (field);
 }
-
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	char **t;
-// 	t = ft_split("t_", '_');
-// /*	printf("%d\n", nextdel("222   ", 0, ' '));*/
-// 	printf("str 1: %s\nstr 2: %s \n ", t[0], t[1]);
-// }
